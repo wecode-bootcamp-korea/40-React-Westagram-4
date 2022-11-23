@@ -14,13 +14,18 @@ import LoginNJ from './pages/najeongpark/Login/Login';
 import MainNJ from './pages/najeongpark/Main/Main';
 
 function Router() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route />
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login-cy" element={<LoginCY />} />
+                <Route path="/main-cy" element={<MainCY />} />
+                <Route path="/login-dy" element={<LoginDY />} />
+                <Route path="/main-dy" element={<MainDY />} />
+                <Route path="/login-nj" element={<LoginNJ />} />
+                <Route path="/main-nj" element={<MainNJ />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default Router;
