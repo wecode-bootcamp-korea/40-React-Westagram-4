@@ -10,9 +10,20 @@ const Login = () => {
     const [isActive, setIsActive] = useState(true);
     const [isActiveBtn, setIsActiveBtn] = useState(true);
     const navigate = useNavigate();
+
     //로그인 버튼 활성화
     const valueChk = () => {
         id && password ? setIsActive(false) : setIsActive(true);
+    };
+
+    //id, password validation check
+    const validationChk = () => {
+        const checkId =
+            /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+        const checkPw = /^[0-9a-zA-Z]{5,}$/;
+        checkId.test(id) && checkPw.test(password)
+            ? navigate('/main-nj')
+            : setIsActiveBtn(false);
     };
 
     return (
@@ -39,7 +50,8 @@ const Login = () => {
                 />
                 <button
                     className={isActive ? 'loginUnActive' : 'loginActive'}
-                    // onClick={validationChk}
+                    onClick={validationChk}
+                    disabled={isActive}
                 >
                     로그인
                 </button>
