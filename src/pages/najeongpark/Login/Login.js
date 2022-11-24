@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Login/Login.scss';
 
-// import '../../../styles/mixin.scss';
+import '../../../styles/mixin.scss';
 
 const Login = () => {
     const [id, setId] = useState('');
