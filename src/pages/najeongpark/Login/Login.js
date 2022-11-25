@@ -6,23 +6,28 @@ import '../../../styles/mixin.scss';
 const Login = () => {
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
-    const [isActive, setIsActive] = useState(true);
-    const [isActiveBtn, setIsActiveBtn] = useState(true);
+    const [showHelpText, setShowHelpText] = useState(false);
+    const checkId =
+        /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    const checkPw = /^[0-9a-zA-Z]{5,}$/;
+    const isActive = checkId.test(id) && checkPw.test(password);
     const navigate = useNavigate();
-
-    //로그인 버튼 활성화
-    const valueChk = () => {
-        id && password ? setIsActive(false) : setIsActive(true);
-    };
 
     //id, password validation check
     const validationChk = () => {
-        const checkId =
-            /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-        const checkPw = /^[0-9a-zA-Z]{5,}$/;
-        checkId.test(id) && checkPw.test(password)
-            ? navigate('/main-nj')
-            : setIsActiveBtn(false);
+        if (isActive) {
+            navigate('/main-nj');
+        } else {
+            setShowHelpText(true);
+        }
+    };
+
+    const idChk = e => {
+        setId(e.target.value);
+    };
+
+    const passwordChk = e => {
+        setPassword(e.target.value);
     };
 
     return (
@@ -30,31 +35,29 @@ const Login = () => {
             <h1>westagram</h1>
             <main className="userInput">
                 <input
-                    onChange={e => {
-                        setId(e.target.value);
-                    }}
-                    onKeyUp={valueChk}
+                    onChange={idChk}
                     className="id"
                     type="text"
+                    value={id}
                     placeholder="전화번호, 사용자 이름 또는 이메일"
                 />
                 <input
-                    onChange={e => {
-                        setPassword(e.target.value);
-                    }}
-                    onKeyUp={valueChk}
+                    onChange={passwordChk}
                     className="pass"
                     type="password"
+                    value={password}
                     placeholder="비밀번호"
                 />
                 <button
-                    className={isActive ? 'loginUnActive' : 'loginActive'}
+                    className={
+                        !(id && password) ? 'loginUnActive' : 'loginActive'
+                    }
                     onClick={validationChk}
-                    disabled={isActive}
+                    disabled={!(id && password)}
                 >
                     로그인
                 </button>
-                {!isActive && !isActiveBtn && (
+                {showHelpText && (
                     <p className="errorMsg">로그인 정보를 확인해주세요.</p>
                 )}
             </main>
