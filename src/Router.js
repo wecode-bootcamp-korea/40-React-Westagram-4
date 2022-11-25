@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Nav from './components/Nav';
 
 // 채영님의 컴포넌트
 import LoginCY from './pages/chaeyoungkim/Login/Login';
@@ -16,6 +17,7 @@ import MainNJ from './pages/najeongpark/Main/Main';
 function Router() {
     return (
         <BrowserRouter>
+            <Nav />
             <Routes>
                 <Route path="/login-cy" element={<LoginCY />} />
                 <Route path="/main-cy" element={<MainCY />} />
