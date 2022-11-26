@@ -1,7 +1,4 @@
-
 @import 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;500;700&family=Lobster&display=swap';
-
-
 
 .nav {
     width: 100%;
@@ -17,7 +14,7 @@
         padding: 0 20px;
         display: flex;
         align-items: center;
-        
+
         .navLogo,
         .navSearchBox,
         .navIcon {
@@ -34,9 +31,9 @@
                 margin: 0 10px;
                 border-left: 1px solid #262626;
             }
-    
+
             .logoBrand {
-                font-family: "Lobster", cursive;
+                font-family: 'Lobster', cursive;
                 font-size: 25px;
             }
         }

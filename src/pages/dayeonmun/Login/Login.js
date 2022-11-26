@@ -1,32 +1,43 @@
 import React from 'react';
 import './Login.scss';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function Login() {
-    const navigate = useNavigate();
+    const [id, setId] = useState('');
+    const [pw, setPw] = useState('');
 
+    const navigate = useNavigate();
     const goToMain = () => {
         navigate('/main-dy');
     };
 
-    return (
-        <>
-            <div className="loginpage">
-                <div className="title">
-                    <p>Westagram</p>
-                </div>
+    function saveUserId(event) {
+        setId(event.target.value);
+    }
 
-                <div className="login">
+    function saveUsetPw(event) {
+        setPw(event.target.value);
+    }
+
+    return (
+        <section className="login">
+            <div className="loginpage">
+                <h1 className="title">Westagram</h1>
+
+                <div className="loginContainer">
                     <form className="loginForm" action="main.html">
                         <input
                             className="id"
                             type="text"
                             placeholder="전화번호, 사용자 이름 또는 이메일"
+                            onChange={saveUserId}
                         />
                         <input
                             className="pw"
                             type="password"
                             placeholder="비밀번호"
+                            onChange={saveUsetPw}
                         />
                         <button
                             className="btn"
@@ -42,7 +53,7 @@ function Login() {
                     <p>비밀번호를 잊으셨나요?</p>
                 </div>
             </div>
-        </>
+        </section>
     );
 }
 
