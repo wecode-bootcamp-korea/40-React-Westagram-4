@@ -12,10 +12,11 @@ function Login() {
         navigate('/main-dy');
     };
 
+    const passLogin = id.includes('@') && pw.length > 4;
+
     function saveUserId(event) {
         setId(event.target.value);
     }
-
     function saveUsetPw(event) {
         setPw(event.target.value);
     }
@@ -40,9 +41,9 @@ function Login() {
                             onChange={saveUsetPw}
                         />
                         <button
-                            className="btn"
+                            type="button"
                             onClick={goToMain}
-                            type="submit"
+                            className={passLogin ? 'activeBtn' : 'unActiveBtn'}
                         >
                             로그인
                         </button>
