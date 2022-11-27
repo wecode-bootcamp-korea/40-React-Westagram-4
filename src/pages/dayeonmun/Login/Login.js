@@ -43,6 +43,7 @@ function Login() {
                         <button
                             type="button"
                             onClick={goToMain}
+                            disabled={!passLogin}
                             className={passLogin ? 'activeBtn' : 'unActiveBtn'}
                         >
                             로그인
