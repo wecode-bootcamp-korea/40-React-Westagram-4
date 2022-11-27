@@ -1,46 +1,25 @@
 import React, { useState } from 'react';
+import Comment from './Comment';
 import '../Main/Main.scss';
 import '../../../styles/mixin.scss';
 
 const Main = () => {
     const [comment, setComment] = useState('');
-    const [isBtnActive, setIsBtnActive] = useState(false);
+    //댓글 목록을 담을 빈 배열 생성
+    const userName = 'p_naajj';
+    const [commentList, setCommentList] = useState([]);
 
-    const commentChk = () => {
-        comment ? setIsBtnActive(true) : setIsBtnActive(false);
+    const commentChk = e => setComment(e.target.value);
+
+    const commentSave = () => {
+        const commentArr = [...commentList];
+        commentArr.push(comment);
+        setCommentList(commentArr);
+        setComment('');
     };
 
     return (
         <>
-            {/* navbar */}
-            <div className="nav">
-                <div className="titleLeft">
-                    <img
-                        className="instaIcon"
-                        src="../../images/najeongpark/instagram.png"
-                        alt="instaImage"
-                    />
-                    <h1 className="title">westagram</h1>
-                </div>
-                <div className="searchBar">
-                    <input type="text" placeholder="검색" />
-                </div>
-                <div className="titleRight">
-                    <img
-                        src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-                        alt="icons"
-                    />
-                    <img
-                        src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                        alt="icons"
-                    />
-                    <img
-                        src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
-                        alt="icons"
-                    />
-                </div>
-            </div>
-
             {/* main */}
             <main className="main">
                 <article>
@@ -89,25 +68,34 @@ const Main = () => {
                                 </span>
                             </div>
                             <span>
-                                <a>pongpong</a> &nbsp; 누나가 인생샷 찍어 죠따🫶
+                                <a>pongpong</a>&nbsp; 누나가 인생샷 찍어 죠따🫶
                             </span>
-                            <ul className="commentList"></ul>
+                            {commentList.map((item, i) => {
+                                return (
+                                    <Comment
+                                        userName={userName}
+                                        list={item}
+                                        key={i}
+                                        idx={i}
+                                    />
+                                );
+                            })}
                             <p style={{ color: '#bdbaba' }}>42분전</p>
                         </div>
                         <div className="addComment">
                             <input
+                                value={comment}
+                                onChange={commentChk}
                                 className="comment"
                                 type="text"
                                 placeholder="댓글 달기..."
-                                onChange={e => {
-                                    setComment(e.target.value);
-                                }}
-                                onKeyUp={commentChk}
                             />
                             <button
                                 className={
-                                    isBtnActive ? 'unSubmitBtn' : 'submitBtn'
+                                    comment ? 'unSubmitBtn' : 'submitBtn'
                                 }
+                                onClick={commentSave}
+                                disabled={!comment}
                             >
                                 게시
                             </button>

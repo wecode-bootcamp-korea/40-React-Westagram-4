@@ -1,49 +1,7 @@
 @import '../../../styles/mixin.scss';
 @import '../../../styles/variables.scss';
 .nav {
-    @include flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 70px;
-
-    .titleLeft {
-        position: relative;
-        margin-left: 100px;
-
-        .instaIcon {
-            width: 30px;
-            height: 30px;
-            padding-top: 1px;
-        }
-
-        .title {
-            font-family: 'Lobster', cursive;
-            display: inline-block;
-            font-size: 30px;
-            width: 200px;
-            border-left: 2px solid black;
-            margin-left: 20px;
-            padding-left: 20px;
-        }
-    }
-
-    .searchBar input {
-        background-image: url(../../../assets/najeongpark/search.png);
-        background-repeat: no-repeat;
-        background-position: 40% center;
-        background-color: #e6e5e5;
-        padding-left: 45%;
-        width: 250px;
-        height: 30px;
-        border: $mainBorder;
-    }
-
-    .titleRight img {
-        width: 30px;
-        height: 30px;
-        margin-right: 20px;
-    }
+    z-index: 1;
 }
 
 main {
@@ -134,7 +92,11 @@ article {
 
         .commentList {
             text-indent: -40px;
-            margin: 20px 0;
+            margin: 15px 0;
+
+            strong {
+                margin-right: 5px;
+            }
 
             .commentIcons {
                 display: inline;
