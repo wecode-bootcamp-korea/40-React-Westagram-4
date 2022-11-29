@@ -1,12 +1,17 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import './Main.scss';
 import { useState } from 'react';
-import Comment from './Comment';
 
 function Main() {
     const [comments, setComments] = useState('');
-    const commentInput = event => setComments(event.target.value);
+    const [list, setList] = useState([]);
+
+    const commentInput = e => setComments(e.target.value);
+    const onClickBtn = e => {
+        e.preventDefault();
+        setComments('');
+        setList([...list, { comment: comments }]);
+    };
 
     return (
         <main>
@@ -47,20 +52,26 @@ function Main() {
                     <span>mundayeon_님 외 100명이 좋아합니다</span>
                 </div>
 
-                <Comment />
-                <p className="ago">1시간 전</p>
-                <section className="commentList">
-                    <input
-                        className="commentText"
-                        type="text"
-                        placeholder="댓글달기 ..."
-                        value={comments}
-                        onChange={commentInput}
-                    />
-                    <button className="commentSubmit" disabled type="submit">
-                        게시
-                    </button>
-                </section>
+                <form onSubmit={onClickBtn}>
+                    <div className="comments">
+                        <ul>
+                            {list.map(list => {
+                                return <li>{list.comment}</li>;
+                            })}
+                        </ul>
+                    </div>
+                    <p className="ago">1시간 전</p>
+                    <div className="commentList">
+                        <input
+                            className="commentText"
+                            type="text"
+                            placeholder="댓글달기 ..."
+                            value={comments}
+                            onChange={commentInput}
+                        />
+                        <button className="commentSubmit">게시</button>
+                    </div>
+                </form>
             </article>
 
             <aside className="mainRight">

@@ -1,6 +1,10 @@
 import React from 'react';
+import './Main.scss';
+import { useState } from 'react';
 
 const Comment = () => {
+    const [artists, setArtists] = useState([]);
+
     return (
         <div>
             <ul className="comments">
