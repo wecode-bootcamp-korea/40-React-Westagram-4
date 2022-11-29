@@ -11,11 +11,24 @@ const Main = () => {
 
     const commentChk = e => setComment(e.target.value);
 
+    const enterSave = e => {
+        if (e.keyCode === 13) {
+            commentSave();
+        }
+    };
+
     const commentSave = () => {
         const commentArr = [...commentList];
         commentArr.push(comment);
         setCommentList(commentArr);
         setComment('');
+    };
+
+    //댓글 삭제
+    const deleteComment = idx => {
+        setCommentList(commentList => {
+            return commentList.filter((_, index) => index !== idx);
+        });
     };
 
     return (
@@ -70,13 +83,14 @@ const Main = () => {
                             <span>
                                 <a>pongpong</a>&nbsp; 누나가 인생샷 찍어 죠따🫶
                             </span>
-                            {commentList.map((item, i) => {
+                            {commentList.map((item, idx) => {
                                 return (
                                     <Comment
                                         userName={userName}
                                         list={item}
-                                        key={i}
-                                        idx={i}
+                                        key={idx}
+                                        idx={idx}
+                                        deleteComment={deleteComment}
                                     />
                                 );
                             })}
@@ -86,6 +100,7 @@ const Main = () => {
                             <input
                                 value={comment}
                                 onChange={commentChk}
+                                onKeyDown={enterSave}
                                 className="comment"
                                 type="text"
                                 placeholder="댓글 달기..."
