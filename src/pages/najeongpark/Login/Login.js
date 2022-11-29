@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../Login/Login.scss';
 import '../../../styles/mixin.scss';
 
@@ -13,21 +13,17 @@ const Login = () => {
     const isActive = checkId.test(id) && checkPw.test(password);
     const navigate = useNavigate();
 
-    //id, password validation check
-    const validationChk = () => {
-        if (isActive) {
-            navigate('/main-nj');
-        } else {
-            setShowHelpText(true);
-        }
-    };
-
     const idChk = e => {
         setId(e.target.value);
     };
 
     const passwordChk = e => {
         setPassword(e.target.value);
+    };
+
+    //id, password validation check
+    const validationChk = () => {
+        isActive ? navigate('/main-nj') : setShowHelpText(true);
     };
 
     return (

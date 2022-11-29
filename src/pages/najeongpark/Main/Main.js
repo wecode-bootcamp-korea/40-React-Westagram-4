@@ -5,7 +5,6 @@ import '../../../styles/mixin.scss';
 
 const Main = () => {
     const [comment, setComment] = useState('');
-    //댓글 목록을 담을 빈 배열 생성
     const userName = 'p_naajj';
     const [commentList, setCommentList] = useState([]);
 
@@ -24,7 +23,6 @@ const Main = () => {
         setComment('');
     };
 
-    //댓글 삭제
     const deleteComment = idx => {
         setCommentList(commentList => {
             return commentList.filter((_, index) => index !== idx);
@@ -83,11 +81,11 @@ const Main = () => {
                             <span>
                                 <a>pongpong</a>&nbsp; 누나가 인생샷 찍어 죠따🫶
                             </span>
-                            {commentList.map((item, idx) => {
+                            {commentList.map((list, idx) => {
                                 return (
                                     <Comment
                                         userName={userName}
-                                        list={item}
+                                        list={list}
                                         key={idx}
                                         idx={idx}
                                         deleteComment={deleteComment}
