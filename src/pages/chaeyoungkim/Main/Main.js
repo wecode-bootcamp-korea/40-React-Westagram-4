@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Main.scss';
+import Comment from './Comment';
 
 function Main() {
     const [comments, setComments] = useState([]);
@@ -16,19 +17,10 @@ function Main() {
     };
 
     const addComment = () => {
-        //spread 연산자 이용 댓글 추가
         setComments([...comments, commentInput]);
         setCommentInput('');
     };
 
-    const commentItems = comments.map(el => {
-        return (
-            <li key={el} className="commentItem">
-                <span className="commentItemText">{el}</span>
-                <button className="commentItemDeleteBtn">x</button>
-            </li>
-        );
-    });
     return (
         <>
             <nav>
@@ -145,17 +137,9 @@ function Main() {
                         </div>
 
                         <div className="comment">
-                            <ul className="commentList">
-                                <li className="commentItem">
-                                    <span className="commentItemText">
-                                        ddddddd
-                                    </span>
-                                    <button className="commentItemDeleteBtn">
-                                        x
-                                    </button>
-                                </li>
-                            </ul>
-                            {commentItems}
+                            {comments.map((item, index) => {
+                                return <Comment list={item} key={index} />;
+                            })}
 
                             <div className="commentWrite">
                                 <input
