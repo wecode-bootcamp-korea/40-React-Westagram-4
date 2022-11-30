@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Main.scss';
 import Comment from './Comment';
+import { FOOTER_LIST } from './Footer';
 
 function Main() {
     const [comments, setComments] = useState([]);
@@ -293,13 +294,22 @@ function Main() {
                     </div>
 
                     <footer>
-                        <p className="instaScript">
+                        {/* <p className="instaScript">
                             소개 · 도움말 · 홍보 센터 · API · 채용 정보 ·
                             개인정보처리방침 ·
                             <br />
                             약관 · 위치 · 인기계정 · 해시태그 · 언어 <br />
                             <br />© 2022 INSTAGRAM FROM FACEBOOK
-                        </p>
+                        </p> */}
+                        <ul className="westaScript">
+                            {FOOTER_LIST.map(footerList => {
+                                return (
+                                    <li key={footerList.id}>
+                                        {footerList.footerName}
+                                    </li>
+                                );
+                            })}
+                        </ul>
                     </footer>
                 </div>
             </div>

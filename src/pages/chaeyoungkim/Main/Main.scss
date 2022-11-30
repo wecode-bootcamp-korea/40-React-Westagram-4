@@ -370,13 +370,16 @@
   
   footer {
     width: 330px;
-  
-    .instaScript {
-    font-size: 12px;
-    padding-left: 12px;
-    margin-top: 20px;
-    color: #8e8e8e;
+
+      .westaScript{
+      font-size: 12px;
+      padding-left: 12px;
+      margin-top: 20px;
+      color: #8e8e8e;
+      display: flex;
+      flex-wrap: wrap;
+
+      }
     }
   
-  }
   
