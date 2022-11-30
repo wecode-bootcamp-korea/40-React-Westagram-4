@@ -86,8 +86,17 @@ main {
                 padding-left: 20px;
                 background: transparent;
             }
-            button {
-                color: #aac9ff;
+
+            .activeBtn {
+                color: #0095f6;
+                font-weight: bold;
+                border: none;
+                margin-right: 20px;
+                background-color: white;
+            }
+
+            .unActiveBtn {
+                color: #c8e0fc;
                 font-weight: bold;
                 border: none;
                 margin-right: 20px;

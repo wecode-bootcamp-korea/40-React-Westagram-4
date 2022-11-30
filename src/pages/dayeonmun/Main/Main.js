@@ -1,4 +1,5 @@
 import React from 'react';
+import Child from './Child';
 import './Main.scss';
 import { useState } from 'react';
 
@@ -9,8 +10,8 @@ function Main() {
     const commentInput = e => setComments(e.target.value);
     const onClickBtn = e => {
         e.preventDefault();
+        setList(list.concat(comments));
         setComments('');
-        setList([...list, { comment: comments }]);
     };
 
     return (
@@ -54,11 +55,9 @@ function Main() {
 
                 <form onSubmit={onClickBtn}>
                     <div className="comments">
-                        <ul>
-                            {list.map(list => {
-                                return <li>{list.comment}</li>;
-                            })}
-                        </ul>
+                        {list.map((element, index) => {
+                            return <Child listItem={element} key={index} />;
+                        })}
                     </div>
                     <p className="ago">1시간 전</p>
                     <div className="commentList">
@@ -69,7 +68,12 @@ function Main() {
                             value={comments}
                             onChange={commentInput}
                         />
-                        <button className="commentSubmit">게시</button>
+                        <button
+                            className={comments ? 'activeBtn' : 'unActiveBtn'}
+                            disabled={!comments}
+                        >
+                            게시
+                        </button>
                     </div>
                 </form>
             </article>
