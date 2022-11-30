@@ -15,6 +15,8 @@ article {
     border: $mainBorder;
     border-radius: 8px;
     margin-top: 60px;
+    display: flex;
+    flex-direction: column;
 
     .wrapFeed {
         position: relative;
@@ -26,21 +28,18 @@ article {
         width: 100%;
 
         .profileImg {
-            background-image: url(../../../assets/najeongpark/pong2.JPG);
-            background-repeat: no-repeat;
-            background-size: cover;
             border-radius: 50%;
             width: 40px;
             height: 40px;
-            margin-left: 20px;
-            margin-right: 15px;
+            margin-left: 5px;
+            margin-right: 10px;
         }
 
         span {
             font-weight: bolder;
         }
 
-        img {
+        .more {
             position: absolute;
             right: 20px;
         }
@@ -76,9 +75,6 @@ article {
             margin: 10px 0 10px 0;
 
             img {
-                background-image: url(../../../assets/najeongpark/puppy3.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
                 border-radius: 50%;
                 width: 35px;
                 height: 35px;

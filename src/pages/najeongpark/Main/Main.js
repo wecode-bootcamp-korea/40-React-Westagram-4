@@ -1,130 +1,41 @@
-import React, { useState } from 'react';
-import Comment from './Comment';
+import React, { useState, useEffect } from 'react';
+import Feed from './Feed';
+import { ASIDE_FOOTER } from './Data';
 import '../Main/Main.scss';
 import '../../../styles/mixin.scss';
 
 const Main = () => {
-    const [comment, setComment] = useState('');
-    const userName = 'p_naajj';
-    const [commentList, setCommentList] = useState([]);
+    const [feedList, setFeedList] = useState([]);
 
-    const commentChk = e => setComment(e.target.value);
-
-    const enterSave = e => {
-        if (e.keyCode === 13) {
-            commentSave();
-        }
-    };
-
-    const commentSave = () => {
-        const commentArr = [...commentList];
-        commentArr.push(comment);
-        setCommentList(commentArr);
-        setComment('');
-    };
-
-    const deleteComment = idx => {
-        setCommentList(commentList => {
-            return commentList.filter((_, index) => index !== idx);
-        });
-    };
+    useEffect(() => {
+        fetch('/data/FeedInfo.json', {
+            method: 'GET',
+        })
+            .then(res => res.json())
+            .then(data => {
+                setFeedList(data);
+            });
+    }, []);
 
     return (
         <>
             {/* main */}
             <main className="main">
                 <article>
-                    <div className="wrapFeed">
-                        <div className="feedNav">
-                            <div className="profileImg" />
-                            <span>pongpong</span>
-                            <img
-                                src="../../images/najeongpark/more.png"
-                                alt="moreImg"
-                            />
-                        </div>
-                        <div className="mainImage">
-                            <img
-                                src="../../images/najeongpark/pong.jpg"
-                                alt="pong"
-                            />
-                        </div>
-                        <div className="icons">
-                            <img
-                                src="../../images/najeongpark/heart.png"
-                                alt="heartImg"
-                            />
-                            <img
-                                src="../../images/najeongpark/chat.png"
-                                alt="chatImg"
-                            />
-                            <img
-                                src="../../images/najeongpark/upload.png"
-                                alt="uploadImg"
-                            />
-                            <img
-                                src="../../images/najeongpark/label.png"
-                                alt="labelImg"
-                            />
-                        </div>
-                        <div className="articleBottom">
-                            <div className="like">
-                                <img
-                                    src="../../images/najeongpark/puppy3.jpg"
-                                    alt="puppy3"
-                                />
-                                <span>
-                                    <a>wecode_najeong</a>님 <a>외 120명</a>이
-                                    좋아합니다
-                                </span>
-                            </div>
-                            <span>
-                                <a>pongpong</a>&nbsp; 누나가 인생샷 찍어 죠따🫶
-                            </span>
-                            {commentList.map((list, idx) => {
-                                return (
-                                    <Comment
-                                        userName={userName}
-                                        list={list}
-                                        key={idx}
-                                        idx={idx}
-                                        deleteComment={deleteComment}
-                                    />
-                                );
-                            })}
-                            <p style={{ color: '#bdbaba' }}>42분전</p>
-                        </div>
-                        <div className="addComment">
-                            <input
-                                value={comment}
-                                onChange={commentChk}
-                                onKeyDown={enterSave}
-                                className="comment"
-                                type="text"
-                                placeholder="댓글 달기..."
-                            />
-                            <button
-                                className={
-                                    comment ? 'unSubmitBtn' : 'submitBtn'
-                                }
-                                onClick={commentSave}
-                                disabled={!comment}
-                            >
-                                게시
-                            </button>
-                        </div>
-                    </div>
+                    {feedList.map(feeds => {
+                        return <Feed feeds={feeds} key={feeds.id} />;
+                    })}
                 </article>
                 {/* aside */}
                 <aside>
                     <div className="asideRight">
                         <div className="myProfile">
                             <img
-                                src="../../images/najeongpark/puppy3.jpg"
-                                alt="puppy3"
+                                src="../../images/najeongpark/me.jpg"
+                                alt="me"
                             />
                             <div className="introduce">
-                                <p>wecode_najeong</p>
+                                <p>p__najj</p>
                                 <p>Wecode | 40기</p>
                             </div>
                         </div>
@@ -136,31 +47,31 @@ const Main = () => {
                             <div className="storyBottom">
                                 <div className="storyIcon">
                                     <img
-                                        src="../../../images/najeongpark/storyPuppy1.jpg"
+                                        src="../../../images/najeongpark/jubi.jpg"
                                         alt="storyPuppy1"
                                     />
                                     <div className="introduce">
-                                        <p>_we____</p>
+                                        <p>jubi_dubi</p>
                                         <p>16분 전</p>
                                     </div>
                                 </div>
                                 <div className="storyIcon">
                                     <img
-                                        src="../../images/najeongpark/storyPuppy2.jpg"
-                                        alt="storyPuppy2"
+                                        src="../../images/najeongpark/pong2.JPG"
+                                        alt="pong"
                                     />
                                     <div className="introduce">
-                                        <p>iwantsnack</p>
+                                        <p>pongpong</p>
                                         <p>3시간 전</p>
                                     </div>
                                 </div>
                                 <div className="storyIcon">
                                     <img
-                                        src="../../images/najeongpark/storyPuppy3.jpg"
-                                        alt="storyPuppy3"
+                                        src="../../images/najeongpark/day.JPG"
+                                        alt="day"
                                     />
                                     <div className="introduce">
-                                        <p>love__human</p>
+                                        <p>seonday</p>
                                         <p>16시간 전</p>
                                     </div>
                                 </div>
@@ -239,16 +150,16 @@ const Main = () => {
 
 export default Main;
 
-const ASIDE_FOOTER = [
-    { id: 1, text: '소개 ・' },
-    { id: 2, text: '도움말 ・' },
-    { id: 3, text: '홍보 센터 ・' },
-    { id: 4, text: 'API ・' },
-    { id: 5, text: '채용 정보 ・' },
-    { id: 6, text: '개인정보처리방침 ・' },
-    { id: 7, text: '약관 ・' },
-    { id: 8, text: '위치 ・' },
-    { id: 9, text: '인기 계정 ・' },
-    { id: 10, text: '해시태그 ・' },
-    { id: 11, text: '언어' },
-];
+// const ASIDE_FOOTER = [
+//     { id: 1, text: '소개 ・' },
+//     { id: 2, text: '도움말 ・' },
+//     { id: 3, text: '홍보 센터 ・' },
+//     { id: 4, text: 'API ・' },
+//     { id: 5, text: '채용 정보 ・' },
+//     { id: 6, text: '개인정보처리방침 ・' },
+//     { id: 7, text: '약관 ・' },
+//     { id: 8, text: '위치 ・' },
+//     { id: 9, text: '인기 계정 ・' },
+//     { id: 10, text: '해시태그 ・' },
+//     { id: 11, text: '언어' },
+// ];
