@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Comment from './Comment';
 import '../Main/Main.scss';
 import '../../../styles/mixin.scss';
 
 const Feed = props => {
     const feeds = props.feeds;
+    const {
+        profileImage,
+        userId,
+        mainImage,
+        likeUserImg,
+        likeUser,
+        likeCnt,
+        mainContent,
+    } = feeds;
     const [comment, setComment] = useState('');
     const userName = 'p_naajj';
     const [commentList, setCommentList] = useState([]);
@@ -33,12 +42,8 @@ const Feed = props => {
     return (
         <div className="wrapFeed" key={feeds.id}>
             <div className="feedNav">
-                <img
-                    className="profileImg"
-                    src={feeds.profileImage}
-                    alt="pongImg"
-                />
-                <span>{feeds.userId}</span>
+                <img className="profileImg" src={profileImage} alt="pongImg" />
+                <span>{userId}</span>
                 <img
                     className="more"
                     src="../../images/najeongpark/more.png"
@@ -46,7 +51,7 @@ const Feed = props => {
                 />
             </div>
             <div className="mainImage">
-                <img src={feeds.mainImage} alt="pong" />
+                <img src={mainImage} alt="pong" />
             </div>
             <div className="icons">
                 <img src="../../images/najeongpark/heart.png" alt="heartImg" />
@@ -59,14 +64,13 @@ const Feed = props => {
             </div>
             <div className="articleBottom">
                 <div className="like">
-                    <img src={feeds.likeUserImg} alt="puppy3" />
+                    <img src={likeUserImg} alt="puppy3" />
                     <span>
-                        <a>{feeds.likeUser}</a>님 <a>{feeds.likeCnt}</a>이
-                        좋아합니다
+                        <a>{likeUser}</a>님 <a>{likeCnt}</a>이 좋아합니다
                     </span>
                 </div>
                 <span>
-                    <a>{feeds.userId}</a>&nbsp; {feeds.mainContent}
+                    <a>{feeds.userId}</a>&nbsp; {mainContent}
                 </span>
                 {commentList.map((list, idx) => {
                     return (

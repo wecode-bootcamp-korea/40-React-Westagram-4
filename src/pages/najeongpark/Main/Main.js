@@ -103,7 +103,7 @@ const Main = () => {
                                     <div className="otherUser">
                                         <p>daengZZang</p>
                                         <p className="recommendWord">
-                                            iwantsnack님 외 2명이 팔로우합니다.
+                                            seonday님 외 2명이 팔로우합니다.
                                         </p>
                                     </div>
                                     <span>팔로우</span>
@@ -116,7 +116,7 @@ const Main = () => {
                                     <div className="otherUser">
                                         <p>ilovehome</p>
                                         <p className="recommendWord">
-                                            aaaaaa 외 12명이 팔로우합니다.
+                                            pongpong 외 12명이 팔로우합니다.
                                         </p>
                                     </div>
                                     <span>팔로우</span>
@@ -129,7 +129,7 @@ const Main = () => {
                                     <div className="otherUser">
                                         <p>ppppppp</p>
                                         <p className="recommendWord">
-                                            love__human 외 6명이 팔로우합니다.
+                                            go_home 외 6명이 팔로우합니다.
                                         </p>
                                     </div>
                                     <span>팔로우</span>
