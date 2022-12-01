@@ -1,0 +1,37 @@
+[{
+    "id": 1,
+    "name": "chaeyoung.k",
+    "profileImage_url": "/images/chaeyoungkim/user.png",
+    "mainImage_url": "/images/chaeyoungkim/main-img.jpg",
+    "description": "건물이야~"
+
+},{
+    "id": 2,
+    "name": "dubu_zz",
+    "profileImage_url": "/images/chaeyoungkim/user.png",
+    "mainImage_url": "/images/chaeyoungkim/dubu.jpg",
+    "description": "두부두부"
+
+},{
+    "id": 3,
+    "name": "pong_pong",
+    "profileImage_url": "/images/chaeyoungkim/user.png",
+    "mainImage_url": "/images/chaeyoungkim/pong.png",
+    "description": "퐁이퐁이"
+
+},{
+    "id": 4,
+    "name": "sa_rangyi",
+    "profileImage_url": "/images/chaeyoungkim/user.png",
+    "mainImage_url": "/images/chaeyoungkim/sarang.png",
+    "description": "💛"
+
+},{
+    "id": 5,
+    "name": "meonj_iii",
+    "profileImage_url": "/images/chaeyoungkim/user.png",
+    "mainImage_url": "/images/chaeyoungkim/meonji.jpg",
+    "description": "💭"
+
+}]
+

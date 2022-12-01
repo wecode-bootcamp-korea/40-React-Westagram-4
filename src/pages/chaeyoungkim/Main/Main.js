@@ -1,26 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Main.scss';
-import Comment from './Comment';
+// import Comment from './Comment';
+import Feed from './Feed';
 import { FOOTER_LIST } from './Footer';
 
 function Main() {
-    const [comments, setComments] = useState([]);
-    const [commentInput, setCommentInput] = useState('');
+    const [feedsInfoList, setFeedsInfoList] = useState([]);
+    // const [comments, setComments] = useState([]);
+    // const [commentInput, setCommentInput] = useState('');
 
-    const handleChange = e => {
-        setCommentInput(e.target.value);
-    };
-    const enterComment = e => {
-        if (e.key === 'Enter' && commentInput !== '') {
-            addComment();
-            e.target.value = '';
-        }
-    };
+    // const handleChange = e => {
+    //     setCommentInput(e.target.value);
+    // };
+    // const enterComment = e => {
+    //     if (e.key === 'Enter' && commentInput !== '') {
+    //         addComment();
+    //         e.target.value = '';
+    //     }
+    // };
 
-    const addComment = () => {
-        setComments([...comments, commentInput]);
-        setCommentInput('');
-    };
+    // const addComment = () => {
+    //     setComments([...comments, commentInput]);
+    //     setCommentInput('');
+    // };
+
+    useEffect(() => {
+        fetch('/data/feedInfoList.json', { method: 'GET' })
+            .then(response => response.json())
+            .then(result => {
+                setFeedsInfoList(result);
+            });
+    }, []);
 
     return (
         <>
@@ -57,109 +67,9 @@ function Main() {
 
             <div className="main">
                 <div className="feeds">
-                    {/* <!-- article --> */}
-                    <article>
-                        <header>
-                            <div className="profile">
-                                <div className="profileImageUserID">
-                                    <img
-                                        className="profileImage"
-                                        src="/images/chaeyoungkim/user.png"
-                                        alt="프로필 이미지"
-                                    />
-                                    <span className="mainArtcleUserID">
-                                        chaeyoung.k
-                                    </span>
-                                </div>
-                                <div className="profileIcon">
-                                    <img
-                                        className="moreIcon"
-                                        src="images/chaeyoungkim/more.png"
-                                        alt="more"
-                                    />
-                                </div>
-                            </div>
-                        </header>
-                        <div className="mainImageBox">
-                            <img
-                                className="mainImage"
-                                src="/images/chaeyoungkim/img.jpeg"
-                                alt="main"
-                            />
-                        </div>
-                        <div className="iconsReact">
-                            <div className="iconsLeft">
-                                <img
-                                    className="iconReact"
-                                    src="/images/chaeyoungkim/heart.png"
-                                    alt="하트"
-                                />
-                                <img
-                                    className="iconReact"
-                                    src="/images/chaeyoungkim/chat.png"
-                                    alt="말풍선"
-                                />
-                                <img
-                                    className="iconReact"
-                                    src="/images/chaeyoungkim/upload.png"
-                                    alt="업로드"
-                                />
-                            </div>
-                            <div className="iconsRight">
-                                <img
-                                    className="iconReact"
-                                    src="/images/chaeyoungkim/bookmark.png"
-                                    alt="북마크"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="reaction">
-                            <div className="likedPeople">
-                                <img
-                                    className="userImage"
-                                    src="/images/chaeyoungkim/user.png"
-                                    alt="프로필 이미지"
-                                />
-                                <p>
-                                    <span className="pointSpan">we_code</span>님
-                                    <span className="pointSpan">
-                                        외 1,234명
-                                    </span>
-                                    이 좋아합니다
-                                </p>
-                            </div>
-                            <div className="description">
-                                <span className="pointSpanUserID">
-                                    chaeyoung.k
-                                </span>
-                                <span className="descriptionSpan">한강~</span>
-                            </div>
-                        </div>
-
-                        <div className="comment">
-                            {comments.map((item, index) => {
-                                return <Comment list={item} key={index} />;
-                            })}
-
-                            <div className="commentWrite">
-                                <input
-                                    className="inputComment"
-                                    type="text"
-                                    placeholder="댓글 달기..."
-                                    onKeyUp={enterComment}
-                                    onChange={handleChange}
-                                />
-                                <button
-                                    type="submit"
-                                    className="submitComment"
-                                    onClick={addComment}
-                                >
-                                    게시
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+                    {feedsInfoList.map(feeds => {
+                        return <Feed feeds={feeds} key={feeds.id} />;
+                    })}
                 </div>
 
                 <div className="mainRight">
@@ -294,13 +204,6 @@ function Main() {
                     </div>
 
                     <footer>
-                        {/* <p className="instaScript">
-                            소개 · 도움말 · 홍보 센터 · API · 채용 정보 ·
-                            개인정보처리방침 ·
-                            <br />
-                            약관 · 위치 · 인기계정 · 해시태그 · 언어 <br />
-                            <br />© 2022 INSTAGRAM FROM FACEBOOK
-                        </p> */}
                         <ul className="westaScript">
                             {FOOTER_LIST.map(footerList => {
                                 return (

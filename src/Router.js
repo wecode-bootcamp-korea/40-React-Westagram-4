@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 // 채영님의 컴포넌트
 import LoginCY from './pages/chaeyoungkim/Login/Login';
 import MainCY from './pages/chaeyoungkim/Main/Main';
+import Signup from './pages/chaeyoungkim/Login/Signup';
 
 // 다연님의 컴포넌트
 import LoginDY from './pages/dayeonmun/Login/Login';
@@ -25,6 +26,7 @@ function Router() {
                 <Route path="/main-dy" element={<MainDY />} />
                 <Route path="/login-nj" element={<LoginNJ />} />
                 <Route path="/main-nj" element={<MainNJ />} />
+                <Route path="/signup" element={<Signup />} />
             </Routes>
         </BrowserRouter>
     );
