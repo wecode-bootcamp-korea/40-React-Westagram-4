@@ -206,20 +206,28 @@ aside {
         .storyIcon {
             @include flex;
             margin: 15px;
+
+            .storyWrap {
+                width: 54px;
+                height: 54px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                background: radial-gradient(
+                    circle at bottom left,
+                    #f58529,
+                    #c42d91
+                );
+            }
         }
 
         .storyIcon img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 3px solid transparent;
-            background-image: linear-gradient(#fff, #fff),
-                linear-gradient(to-right, red 0%, orange 100%);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
+            border: 2px solid #ffffff;
         }
-
-        /* 테두리 css 하나 | img css 하나 두개를 겹쳐봐 */
 
         .storyBottom {
             height: 250px;

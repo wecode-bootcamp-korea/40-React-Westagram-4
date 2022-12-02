@@ -46,40 +46,48 @@ const Main = () => {
                             </div>
                             <div className="storyBottom">
                                 <div className="storyIcon">
-                                    <img
-                                        src="../../../images/najeongpark/jubi.jpg"
-                                        alt="storyPuppy1"
-                                    />
+                                    <div className="storyWrap">
+                                        <img
+                                            src="../../../images/najeongpark/jubi.jpg"
+                                            alt="storyPuppy1"
+                                        />
+                                    </div>
                                     <div className="introduce">
                                         <p>jubi_dubi</p>
                                         <p>16분 전</p>
                                     </div>
                                 </div>
                                 <div className="storyIcon">
-                                    <img
-                                        src="../../images/najeongpark/pong2.JPG"
-                                        alt="pong"
-                                    />
+                                    <div className="storyWrap">
+                                        <img
+                                            src="../../images/najeongpark/pong2.JPG"
+                                            alt="pong"
+                                        />
+                                    </div>
                                     <div className="introduce">
                                         <p>pongpong</p>
                                         <p>3시간 전</p>
                                     </div>
                                 </div>
                                 <div className="storyIcon">
-                                    <img
-                                        src="../../images/najeongpark/day.JPG"
-                                        alt="day"
-                                    />
+                                    <div className="storyWrap">
+                                        <img
+                                            src="../../images/najeongpark/day.JPG"
+                                            alt="day"
+                                        />
+                                    </div>
                                     <div className="introduce">
                                         <p>seonday</p>
                                         <p>16시간 전</p>
                                     </div>
                                 </div>
                                 <div className="storyIcon">
-                                    <img
-                                        src="../../images/najeongpark/storyPuppy4.jpg"
-                                        alt="storyPuppy4"
-                                    />
+                                    <div className="storyWrap">
+                                        <img
+                                            src="../../images/najeongpark/storyPuppy4.jpg"
+                                            alt="storyPuppy4"
+                                        />
+                                    </div>
                                     <div className="introduce">
                                         <p>go_home</p>
                                         <p>16분 전</p>
@@ -149,17 +157,3 @@ const Main = () => {
 };
 
 export default Main;
-
-// const ASIDE_FOOTER = [
-//     { id: 1, text: '소개 ・' },
-//     { id: 2, text: '도움말 ・' },
-//     { id: 3, text: '홍보 센터 ・' },
-//     { id: 4, text: 'API ・' },
-//     { id: 5, text: '채용 정보 ・' },
-//     { id: 6, text: '개인정보처리방침 ・' },
-//     { id: 7, text: '약관 ・' },
-//     { id: 8, text: '위치 ・' },
-//     { id: 9, text: '인기 계정 ・' },
-//     { id: 10, text: '해시태그 ・' },
-//     { id: 11, text: '언어' },
-// ];
