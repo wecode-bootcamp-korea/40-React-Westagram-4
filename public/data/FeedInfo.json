@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "profileImage": "../images/najeongpark/pong2.JPG",
+        "userId": "pongpong",
+        "mainImage": "../images/najeongpark/pong.jpg",
+        "likeUserImg": "../images/najeongpark/me.jpg",
+        "likeUser": "p__najj",
+        "likeCnt": "외 59명",
+        "mainContent": " 잠와...😴",
+        "feedTime": "6분전"
+    },
+    {
+        "id": 2,
+        "profileImage": "../images/najeongpark/me.jpg",
+        "userId": "p__najj",
+        "mainImage": "../images/najeongpark/winter.jpg",
+        "likeUserImg": "../images/najeongpark/jubi.jpg",
+        "likeUser": "jubi_dubi",
+        "likeCnt": "외 72명",
+        "mainContent": " Merry Christmas🎄",
+        "feedTime": "12분전"
+    },
+    {
+        "id": 3,
+        "profileImage": "../images/najeongpark/day.JPG",
+        "userId": "seonday",
+        "mainImage": "../images/najeongpark/fish.jpg",
+        "likeUserImg": "../images/najeongpark/remona.jpg",
+        "likeUser": "remona",
+        "likeCnt": "외 48명",
+        "mainContent": " 방어 🐟🐠",
+        "feedTime": "38분전"
+    },
+    {
+        "id": 4,
+        "profileImage": "../images/najeongpark/na.JPG",
+        "userId": "cafe_tour",
+        "mainImage": "../images/najeongpark/cafe.jpg",
+        "likeUserImg": "../images/najeongpark/day.JPG",
+        "likeUser": "seonday",
+        "likeCnt": "외 25명",
+        "mainContent": "☕️",
+        "feedTime": "51분전"
+    }
+]

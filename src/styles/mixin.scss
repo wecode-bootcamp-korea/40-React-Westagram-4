@@ -1,0 +1,22 @@
+@mixin flex() {
+    display: flex;
+    align-items: center;
+}
+
+@mixin btnDefault() {
+    width: 350px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: $btnColor;
+    color: $backColor;
+    font-size: 20px;
+}
+
+@mixin submitBtnDefault {
+    width: 10%;
+    height: 40px;
+    border: none;
+    color: $btnColor;
+    background-color: $backColor;
+}
