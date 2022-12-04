@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 function Signup() {
-    // const navigate = useNavigate();
-
-    // const goToMain = () => {
-    //     navigate('/main-cy');
-    // };
-
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
     const isValid = id.includes('@') && pw.length >= 5;
@@ -75,7 +68,6 @@ function Signup() {
                             >
                                 <span>회원가입</span>
                             </button>
-                            {/* </Link> */}
                         </div>
                     </form>
 

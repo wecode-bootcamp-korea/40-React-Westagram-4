@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 function Login() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // const goToMain = () => {
-    //     navigate('/main-cy');
-    // };
+    const goToMain = () => {
+        navigate('/main-cy');
+    };
 
     const handleClick = () => {
         fetch('https://10.58.52.143:3000/auth/signin', {
@@ -64,7 +64,7 @@ function Login() {
                                 id="button"
                                 type="button"
                                 className="btn"
-                                onClick={handleClick}
+                                onClick={goToMain}
                                 disabled={isValid ? false : true}
                                 style={
                                     isValid
@@ -74,7 +74,6 @@ function Login() {
                             >
                                 <span>로그인</span>
                             </button>
-                            {/* </Link> */}
                         </div>
                     </form>
 

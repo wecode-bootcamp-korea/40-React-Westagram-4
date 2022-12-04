@@ -1,28 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Main.scss';
-// import Comment from './Comment';
 import Feed from './Feed';
 import { FOOTER_LIST } from './Footer';
 
 function Main() {
     const [feedsInfoList, setFeedsInfoList] = useState([]);
-    // const [comments, setComments] = useState([]);
-    // const [commentInput, setCommentInput] = useState('');
-
-    // const handleChange = e => {
-    //     setCommentInput(e.target.value);
-    // };
-    // const enterComment = e => {
-    //     if (e.key === 'Enter' && commentInput !== '') {
-    //         addComment();
-    //         e.target.value = '';
-    //     }
-    // };
-
-    // const addComment = () => {
-    //     setComments([...comments, commentInput]);
-    //     setCommentInput('');
-    // };
 
     useEffect(() => {
         fetch('/data/feedInfoList.json', { method: 'GET' })
