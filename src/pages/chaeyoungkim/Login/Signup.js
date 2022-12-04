@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
-function Login() {
-    const navigate = useNavigate();
-
-    const goToMain = () => {
-        navigate('/main-cy');
-    };
+function Signup() {
+    const [id, setId] = useState('');
+    const [pw, setPw] = useState('');
+    const isValid = id.includes('@') && pw.length >= 5;
 
     const handleClick = () => {
-        fetch('https://10.58.52.143:3000/auth/signin', {
+        fetch('http://10.58.52.143:3000/auth/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify({ email: id, password: pw }),
@@ -20,9 +17,6 @@ function Login() {
                 console.log(result);
             });
     };
-    const [id, setId] = useState('');
-    const [pw, setPw] = useState('');
-    const isValid = id.includes('@') && pw.length >= 5;
 
     const saveUserId = event => {
         setId(event.target.value);
@@ -64,7 +58,7 @@ function Login() {
                                 id="button"
                                 type="button"
                                 className="btn"
-                                onClick={goToMain}
+                                onClick={handleClick}
                                 disabled={isValid ? false : true}
                                 style={
                                     isValid
@@ -72,7 +66,7 @@ function Login() {
                                         : { backgroundColor: '#b0dffc' }
                                 }
                             >
-                                <span>로그인</span>
+                                <span>회원가입</span>
                             </button>
                         </div>
                     </form>
@@ -86,4 +80,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Signup;
